@@ -9,10 +9,10 @@ class Student:
         print(self.surname, self.date_of_birth, self.group, self.grade)
 
 students =\
-[
+    [
     Student("Самоделов", "09.09.2006", "643", [5, 4, 4, 5, 3]),
     Student("Афанасьев", "21.08.2006", "643", [3, 4, 5, 4, 4])
-]
+    ]
 input_surname = input("Фамилия: ")
 input_the_date_of_birth = input("Дата рождения: ")
 
