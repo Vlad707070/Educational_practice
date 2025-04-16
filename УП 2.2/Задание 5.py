@@ -7,7 +7,7 @@ class Examples:
     def show(self):
         print(f"x = {self.x}, y = {self.y}")
 
-    def __del__(self):
+    def __del__(sel):
         print(f"Объект с x = {self.x}, y = {self.y} удалён")
 
 print("Создание объекта с заданными значениями:")
