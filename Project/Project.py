@@ -57,19 +57,16 @@ def weather_for_the_requested_city(message):
         bot.send_message(message.chat.id, "Не удалось найти город. Попробуй ещё раз.")
 
 def get_random_gif(query):
-    try:
-        url = f"https://api.giphy.com/v1/gifs/search?api_key={GIPHY_API_KEY}&q={query}&limit=50"
-        response = requests.get(url)
-        response.raise_for_status()
-        data = response.json()
-        if data["data"]:
-            gif = random.choice(data["data"])
-            return gif["images"]["original"]["url"]
-        else:
-            return None
-    except Exception as e:
-        print(f"Ошибка при получении GIF: {e}")
+    url = f"https://api.giphy.com/v1/gifs/search?api_key={GIPHY_API_KEY}&q={query}&limit=50"
+    response = requests.get(url)
+    response.raise_for_status()
+    data = response.json()
+    if data["data"]:
+        gif = random.choice(data["data"])
+        return gif["images"]["original"]["url"]
+    else:
         return None
+
 
 def send_gif(message):
     query = message.text
@@ -121,7 +118,7 @@ def send_greetings(chat_id):
 def sending_a_goodbye(chat_id):
     goodbyes = [
         "Пока! Увидимся позже!",
-        "До скорого! 🤗",
+        "До скорого!",
         "Было приятно пообщаться!",
         "Прощай! Хорошего дня!",
         "Удачи и хорошего настроения!"
